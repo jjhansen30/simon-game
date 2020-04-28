@@ -6,6 +6,7 @@ var buttonColors = ["red", "blue", "green", "yellow"];
 $(".btn").click(function(event){
   var userChosenColor = event.target.id;
   userClickPattern.push(userChosenColor);
+  playSound(userChosenColor);
   console.log(userClickPattern);
 });
 
