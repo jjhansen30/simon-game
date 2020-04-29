@@ -8,7 +8,14 @@ $(".btn").click(function(event){
   userClickPattern.push(userChosenColor);
   playSound(userChosenColor);
   console.log(userClickPattern);
+  animatePress(userChosenColor);
 });
+
+function animatePress(currentColor){
+  var colorElement = $("#" + currentColor);
+  colorElement.addClass("pressed");
+  setTimeout(function(){colorElement.removeClass("pressed");}, 100);
+}
 
 function nextSequence(){
   var randomNumber = Math.floor(Math.random() * 4);
@@ -18,6 +25,7 @@ function nextSequence(){
   gamePattern.push(randomChosenColour);
   colorElement.fadeOut(100).fadeIn(100);
   playSound(randomChosenColour);
+  animatePress(randomChosenColour);
 }
 
 function playSound(color){
