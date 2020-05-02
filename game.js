@@ -37,7 +37,6 @@ function nextSequence(){
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColour = buttonColors[randomNumber];
   var colorElement = $("#" + randomChosenColour);
-  //--------------------------------------------
   level++;
   gamePattern.push(randomChosenColour);
   colorElement.fadeOut(100).fadeIn(100);
@@ -56,13 +55,22 @@ function resetArray(){
 
 function compareArrays(){
   var indexedItem = userClickPattern.length - 1;
-  //------------------------------------------------
+  console.log('gamePattern: ' + gamePattern);
+  console.log("userClickPattern: " + userClickPattern);
   if(userClickPattern[indexedItem] === gamePattern[indexedItem]){
-    console.log('gamePattern: ' + gamePattern);
-    console.log("userClickPattern: " + userClickPattern);
+    console.log("arrays match");
   }else{
-    console.log(' compareArrays() placer holder text');
+    console.log('arrays do not match')
+    animateGameOver();
   }
+}
+
+function animateGameOver(){
+  var wrongSound = new Audio('sounds/wrong.mp3');
+  console.log('game over');
+  wrongSound.play();
+  $('body').addClass("game-over");
+  setTimeout(function(){$('body').removeClass("game-over")});
 }
 
 function displayCurrentLevel(){
