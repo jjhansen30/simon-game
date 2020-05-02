@@ -15,10 +15,10 @@ $(".btn").click(function(event){
   }else{
     level++
     userClickPattern.push(userChosenColor);
+    compareArrays();
     displayCurrentLevel();
     playSound(userChosenColor);
     animatePress(userChosenColor);
-    console.log("userClickPattern: " + userClickPattern);
   }
 });
 
@@ -51,8 +51,18 @@ function resetArray(){
   for(i = userClickPattern.length; i > 0; i--){
     userClickPattern.pop();
   }
-  console.log('userClickPattern array reset')
-  return userClickPattern;
+  console.log('userClickPattern array reset: ' + userClickPattern)
+}
+
+function compareArrays(){
+  var indexedItem = userClickPattern.length - 1;
+  //------------------------------------------------
+  if(userClickPattern[indexedItem] === gamePattern[indexedItem]){
+    console.log('gamePattern: ' + gamePattern);
+    console.log("userClickPattern: " + userClickPattern);
+  }else{
+    console.log(' compareArrays() placer holder text');
+  }
 }
 
 function displayCurrentLevel(){
