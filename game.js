@@ -33,10 +33,6 @@ function startGame(){
   }
 }
 
-function displayCurrentLevel(){
-  $("h1").html("LEVEL " + level);
-}
-
 function nextSequence(){
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColour = buttonColors[randomNumber];
@@ -49,6 +45,18 @@ function nextSequence(){
   animatePress(randomChosenColour);
   displayCurrentLevel();
   console.log("gamePattern: " + gamePattern);
+}
+
+function resetArray(){
+  for(i = userClickPattern.length; i > 0; i--){
+    userClickPattern.pop();
+  }
+  console.log('userClickPattern array reset')
+  return userClickPattern;
+}
+
+function displayCurrentLevel(){
+  $("h1").html("LEVEL " + level);
 }
 
 function animatePress(currentColor){
