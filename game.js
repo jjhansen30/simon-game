@@ -13,7 +13,6 @@ $(".btn").click(function(event){
   if(keyPressCount === 0){
     alert("Please press a key to start the game");
   }else{
-    level++
     userClickPattern.push(userChosenColor);
     compareArrays(userChosenColor);
   }
@@ -54,6 +53,10 @@ function compareArrays(color){
     displayCurrentLevel();
     playSound(color);
     animatePress(color);
+    if(userClickPattern.length === gamePattern.length){
+      resetArray();
+      setTimeout(function(){nextSequence()},1000);
+    }
   }else{
     animateGameOver();
   }
@@ -62,7 +65,7 @@ function compareArrays(color){
 function animateGameOver(){
   var wrongSound = new Audio('sounds/wrong.mp3');
   wrongSound.play();
-  $("h1").html("GAME OVER press any key to start again");
+  $("h1").html("GAME OVER");
   $("body").addClass("game-over");
   setTimeout(function(){$("body").removeClass("game-over")});
 }
