@@ -2,15 +2,16 @@
 var userClickPattern = [];
 var gamePattern = [];
 var buttonColors = ["red", "blue", "green", "yellow"];
-var keyPressCount = 0;
 var level = 0;
+var started = false;
+var wrongSound = new Audio('sounds/wrong.mp3');
 
 $("body").on("keydown",startGame);
 
 $(".btn").click(function(event){
   var userChosenColor = event.target.id;
   //checks if user clicks button before the game starts
-  if(keyPressCount === 0){
+  if(!started){
     alert("Please press a key to start the game");
   }else{
     userClickPattern.push(userChosenColor);
@@ -19,12 +20,10 @@ $(".btn").click(function(event){
 });
 
 function startGame(){
-  keyPressCount ++;
-  if(keyPressCount >= 2){
-    null;
-  } else{
+  if(!started){
     displayCurrentLevel();
     nextSequence();
+    started = true;
   }
 }
 
@@ -65,22 +64,11 @@ function compareArrays(color){
 
 function startOver(){
   level = 0;
-  keyPressCount = 0;
-  for(a = gamePattern.length - 1; a > 0; a--){
-    gamePattern.pop();
+  started = false;
+  gamePattern = [];
   }
-}
-
-function startOver(){
-  level = 0;
-  keyPressCount = 0;
-  for(a = gamePattern.length - 1; a > 0; a--){
-    gamePattern.pop();
-  }
-}
 
 function animateGameOver(){
-  var wrongSound = new Audio('sounds/wrong.mp3');
   wrongSound.play();
   $("h1").html("Game Over, Press Any Key To Restart");
   $("body").addClass("game-over");
