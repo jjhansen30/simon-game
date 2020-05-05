@@ -62,6 +62,14 @@ function compareArrays(color){
   }
 }
 
+function startOver(){
+  level = 0;
+  keyPressCount = 0;
+  for(a = gamePattern.length - 1; a > 0; a--){
+    gamePattern.pop();
+  }
+}
+
 function animateGameOver(){
   var wrongSound = new Audio('sounds/wrong.mp3');
   wrongSound.play();
