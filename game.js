@@ -59,6 +59,15 @@ function compareArrays(color){
     }
   }else{
     animateGameOver();
+    startOver();
+  }
+}
+
+function startOver(){
+  level = 0;
+  keyPressCount = 0;
+  for(a = gamePattern.length - 1; a > 0; a--){
+    gamePattern.pop();
   }
 }
 
