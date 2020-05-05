@@ -67,7 +67,7 @@ function animateGameOver(){
   wrongSound.play();
   $("h1").html("GAME OVER");
   $("body").addClass("game-over");
-  setTimeout(function(){$("body").removeClass("game-over")});
+  setTimeout(function(){$("body").removeClass("game-over")},200);
 }
 
 function displayCurrentLevel(){
