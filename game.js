@@ -65,7 +65,7 @@ function compareArrays(color){
 function animateGameOver(){
   var wrongSound = new Audio('sounds/wrong.mp3');
   wrongSound.play();
-  $("h1").html("GAME OVER");
+  $("h1").html("Game Over, Press Any Key To Restart");
   $("body").addClass("game-over");
   setTimeout(function(){$("body").removeClass("game-over")},200);
 }
