@@ -39,13 +39,6 @@ function nextSequence(){
   displayCurrentLevel();
 }
 
-function resetArray(){
-  for(i = userClickPattern.length; i > 0; i--){
-    userClickPattern.pop();
-  }
-  console.log('userClickPattern array reset: ' + userClickPattern)
-}
-
 function compareArrays(color){
   var indexedItem = userClickPattern.length - 1;
   if(userClickPattern[indexedItem] === gamePattern[indexedItem]){
@@ -53,7 +46,7 @@ function compareArrays(color){
     playSound(color);
     animatePress(color);
     if(userClickPattern.length === gamePattern.length){
-      resetArray();
+      userClickPattern = [];
       setTimeout(function(){nextSequence()},1000);
     }
   }else{
@@ -66,6 +59,7 @@ function startOver(){
   level = 0;
   started = false;
   gamePattern = [];
+  userClickPattern = [];
   }
 
 function animateGameOver(){
@@ -77,14 +71,6 @@ function animateGameOver(){
 
 function displayCurrentLevel(){
   $("h1").html("LEVEL " + level);
-}
-
-function resetArray(){
-  for(i = userClickPattern.length; i > 0; i--){
-    userClickPattern.pop();
-  }
-  console.log('userClickPattern array reset')
-  return userClickPattern;
 }
 
 function displayCurrentLevel(){
