@@ -2,12 +2,22 @@ body {
   text-align: center;
   background-color: #011F3F;
 }
+h2 {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive;
+  margin:  5%;
+  color: #FEF2BF;
+}
 
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin:  5%;
   color: #FEF2BF;
+}
+
+.mouse-hover {
+  color: #8dfcf7;
 }
 
 .container {

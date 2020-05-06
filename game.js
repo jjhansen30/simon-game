@@ -19,6 +19,13 @@ $(".btn").click(function(event){
   }
 });
 
+$("#how-to").on("mouseover",function(){
+  $("#how-to").addClass("mouse-hover");
+});
+$("#how-to").on("mouseleave",function(){
+  $("#how-to").removeClass("mouse-hover");
+});
+
 function startGame(){
   if(!started){
     displayCurrentLevel();
